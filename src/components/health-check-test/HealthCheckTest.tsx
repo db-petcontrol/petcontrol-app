@@ -1,6 +1,7 @@
 "use client"
 
 import { useHealthCheck } from "@/hooks/useHealthCheck"
+import { Button } from "../ui/button"
 
 export function HealthCheckTest() {
   const { data, error, isPending, mutate } = useHealthCheck()
@@ -11,15 +12,15 @@ export function HealthCheckTest() {
 
   return (
     <div className="flex flex-col items-center gap-4 rounded-lg border border-gray-200 bg-gray-50 p-6">
-      <h2 className="text-lg font-semibold">Teste de Conexão Backend</h2>
+      <h2 className="text-lg font-semibold text-black">Teste de Conexão Backend</h2>
 
-      <button
+      <Button
         onClick={handleTest}
         disabled={isPending}
         className="rounded bg-blue-600 px-6 py-2 text-white transition hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-50"
       >
         {isPending ? "Testando..." : "Testar Conexão"}
-      </button>
+      </Button>
 
       {error && (
         <div className="w-full rounded-lg bg-red-100 p-3 text-red-700">
