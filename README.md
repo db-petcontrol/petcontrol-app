@@ -17,5 +17,6 @@ This will place the ui components in the `components` directory.
 To use the components in your app, import them as follows:
 
 ```tsx
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/button"
 ```
+//TODO: deixar explicação do shadcn, mas adicionar o README com as demais documentações
