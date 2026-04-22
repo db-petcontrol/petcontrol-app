@@ -12,7 +12,9 @@ export function HealthCheckTest() {
 
   return (
     <div className="flex flex-col items-center gap-4 rounded-lg border border-gray-200 bg-gray-50 p-6">
-      <h2 className="text-lg font-semibold text-black">Teste de Conexão Backend</h2>
+      <h2 className="text-lg font-semibold text-black">
+        Teste de Conexão Backend
+      </h2>
 
       <Button
         onClick={handleTest}

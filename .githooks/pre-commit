@@ -1,0 +1,27 @@
+#!/bin/bash
+set -e
+
+echo "[INFO] Checking code style and formatting..."
+if ! npm run format:check; then
+    echo ""
+    echo "[ERROR] Formatting violations found!"
+    echo "> Please run 'npm run format' to fix them, stage the changes and try again."
+    exit 1
+fi
+
+if ! npm run lint; then
+    echo ""
+    echo "[ERROR] Static analysis (ESLint) violations found!"
+    echo "> Please fix the issues reported above before committing."
+    exit 1
+fi
+
+if ! npm run typecheck; then
+    echo ""
+    echo "[ERROR] Type checking violations found!"
+    echo "> Please fix TypeScript errors before committing."
+    exit 1
+fi
+
+echo "[OK] Checks passed."
+exit 0

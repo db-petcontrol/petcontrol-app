@@ -1,4 +1,4 @@
-export default {
+const prettierConfig = {
   endOfLine: 'lf',
   semi: false,
   singleQuote: false,
@@ -21,8 +21,10 @@ export default {
   importOrderSeparation: true,
   importOrderSortSpecifiers: true,
 
-  tailwindStylesheet: 'app/globals.css',
+  tailwindStylesheet: 'src/app/globals.css',
   tailwindFunctions: ['cn', 'cva'],
 
   tailwindConfig: './tailwind.config.ts',
 }
+
+export default prettierConfig
