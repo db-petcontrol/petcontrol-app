@@ -1,8 +1,8 @@
 import { Geist_Mono, Outfit } from "next/font/google"
 
 import "./globals.css"
-import { ThemeProvider } from "@/components/providers/theme-provider"
-import { Providers } from "@/components/providers/providers"
+import { ThemeProvider } from "@/providers/theme-provider"
+import { Providers } from "@/providers/providers"
 import { cn } from "@/lib/utils"
 
 const outfit = Outfit({ subsets: ["latin"], variable: "--font-sans" })
