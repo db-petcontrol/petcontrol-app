@@ -1,14 +1,20 @@
 import "@testing-library/jest-dom"
 
+export const mockNavigation = {
+  redirect: jest.fn(),
+  routerFunctions: {
+    push: jest.fn(),
+    prefetch: jest.fn(),
+    back: jest.fn(),
+    forward: jest.fn(),
+    refresh: jest.fn(),
+  },
+}
+
 jest.mock("next/navigation", () => ({
+  redirect: mockNavigation.redirect,
   useRouter() {
-    return {
-      push: jest.fn(),
-      prefetch: jest.fn(),
-      back: jest.fn(),
-      forward: jest.fn(),
-      refresh: jest.fn(),
-    }
+    return mockNavigation.routerFunctions
   },
   usePathname() {
     return "/"
