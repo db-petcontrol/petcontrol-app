@@ -1,6 +1,6 @@
 import { useMutation } from "@tanstack/react-query"
 
-import { api } from "@/lib/api.config"
+import { api } from "@/shared/lib/api.config"
 
 interface HealthCheckResponse {
   status: "UP" | "DOWN"

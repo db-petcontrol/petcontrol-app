@@ -1,9 +1,10 @@
 import { Geist_Mono, Outfit } from "next/font/google"
 
 import "./globals.css"
-import { ThemeProvider } from "@/providers/theme-provider"
-import { Providers } from "@/providers/providers"
-import { cn } from "@/lib/utils"
+import { ThemeProvider } from "@/shared/providers/theme-provider"
+import { Providers } from "@/shared/providers/providers"
+import { cn } from "@/shared/lib/utils"
+import { Footer, Header } from "@/shared/components"
 
 const outfit = Outfit({ subsets: ["latin"], variable: "--font-sans" })
 
@@ -28,9 +29,15 @@ export default function RootLayout({
         outfit.variable
       )}
     >
-      <body>
+      <body className="grid min-h-screen grid-cols-1 grid-rows-[min-content_1fr_min-content] bg-secondary">
         <Providers>
-          <ThemeProvider>{children}</ThemeProvider>
+          <ThemeProvider>
+            <Header />
+            <main className="flex w-full justify-self-center lg:max-w-7xl">
+              {children}
+            </main>
+            <Footer />
+          </ThemeProvider>
         </Providers>
       </body>
     </html>

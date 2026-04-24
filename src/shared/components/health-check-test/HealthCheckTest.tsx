@@ -1,6 +1,6 @@
 "use client"
 
-import { useHealthCheck } from "@/hooks/useHealthCheck"
+import { useHealthCheck } from "@/shared/hooks/useHealthCheck"
 import { Button } from "../ui/button"
 
 export function HealthCheckTest() {
