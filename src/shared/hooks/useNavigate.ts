@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation"
 interface UseNavigateResult {
   toPets: () => void
   toNewPet: () => void
+  goBack: () => void
 }
 
 export function useNavigate(): UseNavigateResult {
@@ -17,8 +18,13 @@ export function useNavigate(): UseNavigateResult {
     router.push("/pets/novo")
   }
 
+  function goBack(): void {
+    router.back()
+  }
+
   return {
     toPets,
     toNewPet,
+    goBack,
   }
 }
