@@ -43,46 +43,7 @@ _⚠️ A aplicação pode levar alguns segundos para responder na primeira requ
 
 ## 🏗️ Estrutura do Projeto
 
-```
-petcontrol-app/
-├── src/
-│   ├── app/                        # Rotas (App Router)
-│   │   ├── layout.tsx
-│   │   ├── page.tsx
-│   │   └── globals.css
-│   │
-│   ├── components/
-│   │   ├── ui/                     # Componentes shadcn/ui
-│   │   ├── providers/
-│   │   │   ├── providers.tsx       # QueryClientProvider global
-│   │   │   └── theme-provider.tsx  # Suporte dark/light mode
-│   │   └── feature/                # Componentes por domínio, ex: pets/
-│   │
-│   ├── hooks/                      # Custom hooks reutilizáveis
-│   │
-│   ├── lib/
-│   │   ├── utils.ts                # Função cn() do shadcn
-│   │   └── api.config.ts           # Instância do Axios configurada
-│   │
-│   ├── services/                   # Funções de chamada à API
-│   │   └── pets.ts
-│   │
-│   ├── types/                      # Tipos e interfaces
-│   │   └── pet.ts
-│   │
-│   └── schemas/       # Schemas Zod (validação de formulários)
-│       └── pet.ts
-│
-├── public/               # Imagens, ícones e fontes estáticas
-├── tests/
-│   └── mocks/           # Handlers do MSW para mock de API
-│
-├── jest.config.ts                  # Configuração do Jest
-├── jest.setup.ts                   # Setup Jest (mocks globais)
-└── .env.example                    # Template de variáveis (commitar)
-```
-
----
+## ⛔ _Seção em construção_
 
 ## ⚙️ Como Rodar o Projeto
 
