@@ -1,3 +1,5 @@
+export { PageLayout } from "@/shared/components/layout/page-layout/PageLayout"
+export { ContainerLayout } from "@/shared/components/layout/container-layout/ContainerLayout"
 export { PrimaryButton } from "./buttons/primary-button/PrimaryButton"
 export { LinkButton } from "./buttons/link-button/LinkButton"
 export { Footer } from "./layout/footer/Footer"

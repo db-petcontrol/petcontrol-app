@@ -33,9 +33,7 @@ export default function RootLayout({
         <Providers>
           <ThemeProvider>
             <Header />
-            <main className="flex w-full justify-self-center lg:max-w-7xl">
-              {children}
-            </main>
+            <main className="flex w-full justify-center">{children}</main>
             <Footer />
           </ThemeProvider>
         </Providers>

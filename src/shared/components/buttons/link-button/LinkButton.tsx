@@ -16,7 +16,7 @@ export function LinkButton({
   return (
     <CustomButton
       type={type}
-      className={cn(className)}
+      className={cn("bg-transparent", className)}
       aria-label={`Ir para ${targetLabel}`}
       {...props}
     >
