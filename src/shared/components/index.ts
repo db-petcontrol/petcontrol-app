@@ -1,4 +1,5 @@
 export { PrimaryButton } from "./buttons/primary-button/PrimaryButton"
+export { LinkButton } from "./buttons/link-button/LinkButton"
 export { Footer } from "./layout/footer/Footer"
 export { Header } from "./layout/header/Header"
 export { HealthCheckTest } from "./health-check-test/HealthCheckTest"
