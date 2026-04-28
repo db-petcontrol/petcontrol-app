@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/shared/providers/theme-provider"
 import { Providers } from "@/shared/providers/providers"
 import { cn } from "@/shared/lib/utils"
 import { Footer, Header } from "@/shared/components"
+import { CustomToaster } from "@/shared/components/layout/custom-toaster/CustomToaster"
 
 const outfit = Outfit({ subsets: ["latin"], variable: "--font-sans" })
 
@@ -35,6 +36,7 @@ export default function RootLayout({
             <Header />
             <main className="flex w-full justify-center">{children}</main>
             <Footer />
+            <CustomToaster />
           </ThemeProvider>
         </Providers>
       </body>
