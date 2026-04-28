@@ -2,19 +2,19 @@ import { ButtonHTMLAttributes } from "react"
 import { cn } from "@/shared/lib/utils"
 import { CustomButton } from "../custom-button/CustomButton"
 
-type PrimaryButtonProps = ButtonHTMLAttributes<HTMLButtonElement>
+type InfoButtonProps = ButtonHTMLAttributes<HTMLButtonElement>
 
-export function PrimaryButton({
+export function InfoButton({
   children,
   className,
   type = "button",
   ...props
-}: PrimaryButtonProps) {
+}: InfoButtonProps) {
   return (
     <CustomButton
       type={type}
       className={cn(
-        "border-2 border-sky-700 shadow-md shadow-neutral-200 hover:border-sky-800 hover:bg-sky-800 disabled:border-sky-500 disabled:bg-sky-500 disabled:text-sky-300",
+        "hover:border-sky border-2 border-sky-600 bg-transparent text-sky-600 shadow-md shadow-neutral-200 hover:border-sky-800 hover:text-sky-800",
         className
       )}
       {...props}
