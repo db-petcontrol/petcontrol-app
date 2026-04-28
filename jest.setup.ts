@@ -1,5 +1,17 @@
 import "@testing-library/jest-dom"
 
+global.ResizeObserver =
+  global.ResizeObserver ||
+  class {
+    observe() {}
+    unobserve() {}
+    disconnect() {}
+  }
+
+window.HTMLElement.prototype.scrollIntoView = jest.fn()
+window.HTMLElement.prototype.hasPointerCapture = jest.fn()
+window.HTMLElement.prototype.releasePointerCapture = jest.fn()
+
 export const mockNavigation = {
   redirect: jest.fn(),
   routerFunctions: {
@@ -9,6 +21,13 @@ export const mockNavigation = {
     forward: jest.fn(),
     refresh: jest.fn(),
   },
+}
+
+export const mockApi = {
+  get: jest.fn(),
+  post: jest.fn(),
+  put: jest.fn(),
+  delete: jest.fn(),
 }
 
 jest.mock("next/navigation", () => ({
@@ -33,4 +52,8 @@ jest.mock("next-themes", () => ({
     systemTheme: "light",
     resolvedTheme: "light",
   }),
+}))
+
+jest.mock("@/shared/lib/api.config", () => ({
+  api: mockApi,
 }))
