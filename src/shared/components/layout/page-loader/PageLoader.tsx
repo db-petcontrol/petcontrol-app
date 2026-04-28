@@ -2,7 +2,6 @@
 
 import { cn } from "@/shared/lib/utils"
 import { Loader2 } from "lucide-react"
-import { useEffect } from "react"
 
 interface PageLoaderProps {
   isLoading: boolean

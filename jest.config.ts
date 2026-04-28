@@ -22,6 +22,8 @@ const config: Config = {
     "!**/coverage/**",
     "!**/jest.config.ts",
     "!**/index.{js,jsx,ts,tsx}",
+    "!src/shared/components/ui/**",
+    "!**/types/**",
   ],
   testPathIgnorePatterns: ["/node_modules/", "/.next/"],
 }
