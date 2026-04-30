@@ -48,6 +48,7 @@ export function PetForm({
           name="name"
           placeholder="Ex: Rex, Mimi, Thor"
           required
+          maxLength={20}
         />
 
         <SelectField<PetSchema>
