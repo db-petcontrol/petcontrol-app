@@ -1,3 +1,6 @@
 export { PetListHeader } from "./components/pet-list-header/PetListHeader"
 export { PetForm } from "./components/pet-form/PetForm"
 export { useCreatePetPageViewModel } from "./hooks/create-pet-page-view-model/useCreatePetPageViewModel"
+export { PetList } from "./components/pet-list/PetList"
+// export { usePets } from "./hooks/pets/usePets"
+// export { usePetsListPageViewModel } from "./hooks/use-pets-list-view-model/usePetsListViewModel"
