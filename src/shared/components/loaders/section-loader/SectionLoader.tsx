@@ -18,6 +18,7 @@ export function SectionLoader({
 
   return (
     <div
+      data-testid="section-loader"
       className={cn("flex w-full items-center justify-center gap-2", className)}
     >
       <Loader2

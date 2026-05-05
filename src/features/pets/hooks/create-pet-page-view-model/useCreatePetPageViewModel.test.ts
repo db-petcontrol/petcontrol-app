@@ -10,6 +10,7 @@ import { speciesOptionsMock } from "@/shared/test-utils/mocks/species-mocks"
 import { tagsOptionsMock } from "@/shared/test-utils/mocks/tags-mocks"
 import { petMock } from "@/shared/test-utils/mocks/pets-mocks"
 import * as toastUtils from "@/shared/utils/toast-utils"
+import { QueryClientProviderMock } from "@/shared/test-utils/providers/query-client-provider.mock"
 
 jest.mock("@/features/species", () => ({
   useSpeciesOptions: jest.fn(),
@@ -50,7 +51,9 @@ describe("useCreatePetPageViewModel", () => {
   })
 
   it("should return speciesOptions and tagsOptions correctly", () => {
-    const { result } = renderHook(() => useCreatePetPageViewModel())
+    const { result } = renderHook(() => useCreatePetPageViewModel(), {
+      wrapper: QueryClientProviderMock,
+    })
 
     expect(result.current.speciesOptions).toEqual(speciesOptions.options)
     expect(result.current.tagsOptions).toEqual(tagsOptions.options)
@@ -61,7 +64,11 @@ describe("useCreatePetPageViewModel", () => {
       ...speciesOptions,
       isLoading: true,
     })
-    const { result } = renderHook(() => useCreatePetPageViewModel())
+
+    const { result } = renderHook(() => useCreatePetPageViewModel(), {
+      wrapper: QueryClientProviderMock,
+    })
+
     expect(result.current.isLoading).toBe(true)
   })
 
@@ -70,12 +77,19 @@ describe("useCreatePetPageViewModel", () => {
       ...tagsOptions,
       isLoading: true,
     })
-    const { result } = renderHook(() => useCreatePetPageViewModel())
+
+    const { result } = renderHook(() => useCreatePetPageViewModel(), {
+      wrapper: QueryClientProviderMock,
+    })
+
     expect(result.current.isLoading).toBe(true)
   })
 
   it("should call mutate when creating a pet", () => {
-    const { result } = renderHook(() => useCreatePetPageViewModel())
+    const { result } = renderHook(() => useCreatePetPageViewModel(), {
+      wrapper: QueryClientProviderMock,
+    })
+
     act(() => {
       result.current.handleCreatePet(petMock)
     })
@@ -89,7 +103,10 @@ describe("useCreatePetPageViewModel", () => {
       isPending: false,
     })
 
-    const { result } = renderHook(() => useCreatePetPageViewModel())
+    const { result } = renderHook(() => useCreatePetPageViewModel(), {
+      wrapper: QueryClientProviderMock,
+    })
+
     act(() => {
       result.current.handleCreatePet(petMock)
     })
@@ -104,7 +121,10 @@ describe("useCreatePetPageViewModel", () => {
       isPending: false,
     })
 
-    const { result } = renderHook(() => useCreatePetPageViewModel())
+    const { result } = renderHook(() => useCreatePetPageViewModel(), {
+      wrapper: QueryClientProviderMock,
+    })
+
     act(() => {
       result.current.handleCreatePet(petMock)
     })
@@ -123,7 +143,9 @@ describe("useCreatePetPageViewModel", () => {
       isError: false,
     })
 
-    renderHook(() => useCreatePetPageViewModel())
+    renderHook(() => useCreatePetPageViewModel(), {
+      wrapper: QueryClientProviderMock,
+    })
 
     expect(toastUtils.showErrorToast as jest.Mock).toHaveBeenCalled()
     expect(mockNavigation.routerFunctions.push).toHaveBeenCalledWith("/pets")
