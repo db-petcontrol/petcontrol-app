@@ -2,15 +2,20 @@ export { FormBase } from "@/shared/components/form/form-base/FormBase"
 export { InputField } from "@/shared/components/form/input-field/InputField"
 export { CheckboxField } from "@/shared/components/form/checkbox-field/CheckboxField"
 export { SelectField } from "@/shared/components/form/select-field/SelectField"
-export { PageLayout } from "@/shared/components/layout/page-layout/PageLayout"
+
 export { SectionLoader } from "@/shared/components/loaders/section-loader/SectionLoader"
 export { PageLoader } from "@/shared/components/loaders/page-loader/PageLoader"
-export { ContainerLayout } from "@/shared/components/layout/container-layout/ContainerLayout"
+
 export { PrimaryButton } from "./buttons/primary-button/PrimaryButton"
 export { LinkButton } from "./buttons/link-button/LinkButton"
 export { InfoButton } from "./buttons/info-button/InfoButton"
 export { SubmitButton } from "./buttons/submit-button/SubmitButton"
 export { DeleteButton } from "./buttons/delete-button/DeleteButton"
+
+export { PageLayout } from "@/shared/components/layout/page-layout/PageLayout"
+export { ContainerLayout } from "@/shared/components/layout/container-layout/ContainerLayout"
 export { Footer } from "./layout/footer/Footer"
 export { Header } from "./layout/header/Header"
+export { ImagePlaceholder } from "./layout/image-placeholder/ImagePlaceholder"
+
 export { CustomPagination } from "./pagination/custom-pagination/CustomPagination"
