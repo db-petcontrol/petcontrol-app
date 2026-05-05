@@ -1,7 +1,10 @@
 "use client"
 
-import { PetList, PetListHeader } from "@/features/pets"
-import { usePetsListPageViewModel } from "@/features/pets/hooks/use-pets-list-view-model/usePetsListViewModel"
+import {
+  PetList,
+  PetListHeader,
+  usePetsListPageViewModel,
+} from "@/features/pets"
 import { CustomPagination, SectionLoader } from "@/shared/components"
 
 export default function Page() {

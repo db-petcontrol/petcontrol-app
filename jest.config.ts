@@ -23,6 +23,7 @@ const config: Config = {
     "!**/jest.config.ts",
     "!**/index.{js,jsx,ts,tsx}",
     "!src/shared/components/ui/**",
+    "!src/shared/lib/**",
     "!**/types/**",
   ],
   testPathIgnorePatterns: ["/node_modules/", "/.next/"],

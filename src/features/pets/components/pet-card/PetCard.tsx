@@ -28,6 +28,7 @@ export function PetCard({ pet }: PetCardProps) {
       <div className="flex h-10 flex-wrap items-start gap-x-2 gap-y-2">
         {pet.tags.slice(0, 5).map((tag) => (
           <span
+            data-testid="pet-tag"
             key={tag}
             className="rounded-2xl border border-gray-200 bg-gray-100 px-2 py-0.5 text-center text-[11px] font-medium text-gray-700"
           >
