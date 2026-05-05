@@ -9,6 +9,7 @@ import { Option } from "@/shared/types/common.types"
 import { useCreatePet } from "../create-pet/useCreatePet"
 import { toast } from "sonner"
 import { PetSchema } from "../../schemas/pet.schema"
+import { useQueryClient } from "@tanstack/react-query"
 
 interface UseCreatePetPageViewModelResult {
   speciesOptions: Option[]
@@ -19,6 +20,7 @@ interface UseCreatePetPageViewModelResult {
 }
 
 export function useCreatePetPageViewModel(): UseCreatePetPageViewModelResult {
+  const queryClient = useQueryClient()
   const { toPets } = useNavigate()
 
   const species = useSpeciesOptions()
@@ -32,6 +34,7 @@ export function useCreatePetPageViewModel(): UseCreatePetPageViewModelResult {
   function handleCreatePet(data: PetSchema): void {
     createPetMutation.mutate(data, {
       onSuccess: () => {
+        queryClient.invalidateQueries({ queryKey: ["pets"] })
         toast.success("Pet cadastrado com sucesso!")
         toPets()
       },
