@@ -13,7 +13,7 @@ export const petMock: PetSchema = {
 export const petResponseMock: Pet = {
   id: "d8906906-5136-4ce5-825a-73ee95a267a1",
   name: "Rex",
-  specieName: "Cachorro",
+  species: "Cachorro",
   status: PetStatus.AVAILABLE,
   tags: ["vacinado", "treinado"],
 }
