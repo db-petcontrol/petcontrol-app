@@ -14,6 +14,10 @@ const fontMono = Geist_Mono({
   variable: "--font-mono",
 })
 
+export const metadata = {
+  title: "PetControl",
+}
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -34,7 +38,7 @@ export default function RootLayout({
         <Providers>
           <ThemeProvider>
             <Header />
-            <main className="flex w-full justify-center">{children}</main>
+            <main className="mb-10 flex w-full justify-center">{children}</main>
             <Footer />
             <CustomToaster />
           </ThemeProvider>

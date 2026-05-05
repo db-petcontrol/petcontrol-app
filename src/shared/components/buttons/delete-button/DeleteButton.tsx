@@ -2,19 +2,19 @@ import { ButtonHTMLAttributes } from "react"
 import { cn } from "@/shared/lib/utils"
 import { CustomButton } from "../custom-button/CustomButton"
 
-type InfoButtonProps = ButtonHTMLAttributes<HTMLButtonElement>
+type DeleteButtonProps = ButtonHTMLAttributes<HTMLButtonElement>
 
-export function InfoButton({
+export function DeleteButton({
   children,
   className,
   type = "button",
   ...props
-}: InfoButtonProps) {
+}: DeleteButtonProps) {
   return (
     <CustomButton
       type={type}
       className={cn(
-        "hover:border-sky border-2 border-sky-600 bg-transparent text-sky-600 shadow-md shadow-neutral-200 hover:border-sky-700 hover:text-sky-700",
+        "hover:border-sky border-2 border-red-600 bg-transparent text-red-600 shadow-md shadow-neutral-200 hover:border-red-700 hover:text-red-700",
         className
       )}
       {...props}
