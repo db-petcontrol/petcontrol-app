@@ -11,22 +11,22 @@ export function PetCard({ pet }: PetCardProps) {
   return (
     <ContainerLayout
       key={pet.id}
-      className="flex flex-col gap-4 px-3 py-4 duration-100 hover:border-2 hover:border-primary"
+      className="flex flex-col gap-1 px-3 py-4 duration-100 hover:border-2 hover:border-primary"
     >
-      <div className="flex h-40 items-center justify-center rounded-lg border-2 border-dashed border-gray-300 bg-gray-200">
+      <div className="mb-2 flex h-40 items-center justify-center rounded-lg border-2 border-dashed border-gray-300 bg-gray-200">
         <PawPrint size={65} className="text-gray-300" />
       </div>
 
-      <div className="flex flex-col gap-0.5">
+      <div className="mb-3 flex flex-col gap-0.5">
         <div className="flex items-start justify-between">
           <h3 className="text-xl font-bold text-gray-800">{pet.name}</h3>
           <PetStatusBadge status={pet.status} />
         </div>
-        <p className="text-sm text-gray-500 italic">{pet.specieName}</p>
+        <p className="text-2xlg text-gray-500 italic">{pet.species}</p>
       </div>
 
-      <div className="flex h-10 flex-wrap items-start gap-x-2 gap-y-2">
-        {pet.tags.slice(0, 5).map((tag) => (
+      <div className="flex h-15 flex-wrap items-start gap-x-2 gap-y-2 overflow-hidden text-ellipsis whitespace-nowrap">
+        {pet.tags.slice(0, 4).map((tag) => (
           <span
             data-testid="pet-tag"
             key={tag}
@@ -35,7 +35,7 @@ export function PetCard({ pet }: PetCardProps) {
             {tag}
           </span>
         ))}
-        {pet.tags.length > 5 && (
+        {pet.tags.length > 4 && (
           <span className="text-xs font-bold text-gray-400">...</span>
         )}
       </div>

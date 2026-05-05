@@ -26,8 +26,8 @@ describe(PetCard.name, () => {
     expect(screen.queryAllByTestId("pet-tag")).toHaveLength(0)
   })
 
-  it("should display exactly 5 tags", () => {
-    const tags = ["vacinado", "treinado", "amigável", "tímido", "sociável"]
+  it("should display exactly 4 tags", () => {
+    const tags = ["vacinado", "treinado", "amigável", "tímido"]
     const pet = { ...petResponseMock, tags }
     renderWithProviders(<PetCard pet={pet} />)
 
@@ -37,19 +37,12 @@ describe(PetCard.name, () => {
     expect(screen.queryByText("...")).not.toBeInTheDocument()
   })
 
-  it("should display ellipsis when more than 5 tags", () => {
-    const tags = [
-      "vacinado",
-      "treinado",
-      "amigável",
-      "tímido",
-      "sociável",
-      "castrado",
-    ]
+  it("should display ellipsis when more than 4 tags", () => {
+    const tags = ["vacinado", "treinado", "amigável", "tímido", "sociável"]
     const pet = { ...petResponseMock, tags }
     render(<PetCard pet={pet} />)
 
-    tags.slice(0, 5).forEach((tag) => {
+    tags.slice(0, 4).forEach((tag) => {
       expect(screen.getByText(tag)).toBeInTheDocument()
     })
     expect(screen.getByText("...")).toBeInTheDocument()
