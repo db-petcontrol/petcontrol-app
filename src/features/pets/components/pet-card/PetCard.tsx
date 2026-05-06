@@ -25,12 +25,12 @@ export function PetCard({ pet }: PetCardProps) {
           <h3 className="text-xl font-bold text-gray-800">{pet.name}</h3>
           <PetStatusBadge status={pet.status} />
         </div>
-        <p className="text-2xlg text-gray-500 italic">{pet.species}</p>
+        <p className="text-2xlg text-gray-500 italic">{pet.species.name}</p>
       </div>
 
       <div className="flex h-15 flex-wrap items-start gap-x-2 gap-y-2 overflow-hidden text-ellipsis whitespace-nowrap">
         {pet.tags.slice(0, 4).map((tag) => (
-          <PetTagBadge key={tag} tag={tag} />
+          <PetTagBadge key={tag.id} tag={tag.name} />
         ))}
         {pet.tags.length > 4 && (
           <span className="text-xs font-bold text-gray-400">...</span>

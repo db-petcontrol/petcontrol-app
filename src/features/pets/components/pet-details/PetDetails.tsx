@@ -32,7 +32,7 @@ export function PetDetails({ pet }: PetDetailsProps) {
           </div>
           <div>
             <h4 className="mb-0.5 text-gray-700">Espécie</h4>
-            <p className="font-bold">{pet.species}</p>
+            <p className="font-bold">{pet.species.name}</p>
           </div>
           <div>
             <h4 className="mb-1.5 text-gray-700">Status</h4>
@@ -47,7 +47,7 @@ export function PetDetails({ pet }: PetDetailsProps) {
             ) : (
               <div className="mt-2 flex flex-wrap gap-2">
                 {pet.tags.map((tag) => (
-                  <PetTagBadge key={tag} tag={tag} />
+                  <PetTagBadge key={tag.id} tag={tag.name} />
                 ))}
               </div>
             )}
