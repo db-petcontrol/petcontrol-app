@@ -35,14 +35,14 @@ describe(PetDetails.name, () => {
 
     expect(screen.getByText(petResponseMock.id)).toBeInTheDocument()
     expect(screen.getByText(petResponseMock.name)).toBeInTheDocument()
-    expect(screen.getByText(petResponseMock.species)).toBeInTheDocument()
+    expect(screen.getByText(petResponseMock.species.name)).toBeInTheDocument()
     expect(screen.getByText(/disponível/i)).toBeInTheDocument()
   })
 
   it("should display all pet tags", () => {
     render(<PetDetails pet={petResponseMock} />)
     petResponseMock.tags.forEach((tag) => {
-      expect(screen.getByText(tag)).toBeInTheDocument()
+      expect(screen.getByText(tag.name)).toBeInTheDocument()
     })
   })
 

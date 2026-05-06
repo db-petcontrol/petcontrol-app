@@ -2,6 +2,8 @@ import { PetStatus } from "@/features/pets/enums/pet-status.enum"
 import { PetSchema } from "@/features/pets/schemas/pet.schema"
 import { Pet } from "@/features/pets/types/pets.types"
 import { PageResponse } from "@/shared/types/common.types"
+import { speciesMock } from "./species-mocks"
+import { tagsMock } from "./tags-mocks"
 
 export const petMock: PetSchema = {
   name: "Rex",
@@ -13,9 +15,9 @@ export const petMock: PetSchema = {
 export const petResponseMock: Pet = {
   id: "d8906906-5136-4ce5-825a-73ee95a267a1",
   name: "Rex",
-  species: "Cachorro",
+  species: speciesMock[0],
   status: PetStatus.AVAILABLE,
-  tags: ["vacinado", "treinado"],
+  tags: tagsMock ,
 }
 
 export const petPageMock: PageResponse<Pet> = {
