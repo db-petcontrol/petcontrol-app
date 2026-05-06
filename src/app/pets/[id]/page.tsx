@@ -8,7 +8,7 @@ import {
 import { PageLayout, PageLoader } from "@/shared/components"
 import React from "react"
 
-type PageProps = {
+interface PageProps {
   params: Promise<{ id: string }>
 }
 
