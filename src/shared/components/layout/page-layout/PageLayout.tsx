@@ -19,7 +19,7 @@ export function PageLayout({
   const { goBack } = useNavigate()
 
   return (
-    <section className="w-full border-2">
+    <section className="w-full">
       <header className="flex justify-center border-b-2 bg-white px-6 py-4">
         <div className="flex w-full items-center justify-between gap-2 lg:max-w-7xl">
           <div className="flex items-center gap-5">
