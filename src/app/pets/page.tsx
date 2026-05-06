@@ -1,15 +1,11 @@
 "use client"
 
-import {
-  PetList,
-  PetListHeader,
-  usePetsListPageViewModel,
-} from "@/features/pets"
+import { PetList, PetListHeader, usePetsPageViewModel } from "@/features/pets"
 import { CustomPagination, SectionLoader } from "@/shared/components"
 
 export default function Page() {
   const { pagePetCurrent, isLoading, page, handleChangePage } =
-    usePetsListPageViewModel()
+    usePetsPageViewModel()
 
   return (
     <section className="flex w-full flex-col px-10 py-8 lg:max-w-7xl">

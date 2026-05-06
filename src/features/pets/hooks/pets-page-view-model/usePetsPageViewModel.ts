@@ -4,14 +4,14 @@ import { PageResponse } from "@/shared/types/common.types"
 import { Pet } from "../../types/pets.types"
 import { showErrorToast } from "@/shared/utils/toast-utils"
 
-interface UsePetsListPageViewModelResult {
+interface UsePetsPageViewModelResult {
   pagePetCurrent: PageResponse<Pet>
   isLoading: boolean
   page: number
   handleChangePage: (page: number) => void
 }
 
-export function usePetsListPageViewModel(): UsePetsListPageViewModelResult {
+export function usePetsPageViewModel(): UsePetsPageViewModelResult {
   const [page, setPage] = useState(0)
   const { data, isLoading: petsLoading, isFetching, isError } = usePets(page)
 

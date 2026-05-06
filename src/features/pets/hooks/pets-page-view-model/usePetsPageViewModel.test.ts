@@ -1,5 +1,5 @@
 import { renderHook, act } from "@testing-library/react"
-import { usePetsListPageViewModel } from "./usePetsListViewModel"
+import { usePetsPageViewModel } from "./usePetsPageViewModel"
 import { usePets } from "../pets/usePets"
 import * as toastUtils from "@/shared/utils/toast-utils"
 import { petPageMock } from "@/shared/test-utils/mocks/pets-mocks"
@@ -18,14 +18,14 @@ const baseHookMock = {
   isError: false,
 }
 
-describe(usePetsListPageViewModel.name, () => {
+describe(usePetsPageViewModel.name, () => {
   beforeEach(() => {
     jest.clearAllMocks()
     ;(usePets as jest.Mock).mockReturnValue(baseHookMock)
   })
 
   it("should return pets page data correctly", () => {
-    const { result } = renderHook(() => usePetsListPageViewModel())
+    const { result } = renderHook(() => usePetsPageViewModel())
     expect(result.current.pagePetCurrent).toEqual(petPageMock)
     expect(result.current.isLoading).toBe(false)
     expect(result.current.page).toBe(0)
@@ -36,7 +36,7 @@ describe(usePetsListPageViewModel.name, () => {
       ...baseHookMock,
       isLoading: true,
     })
-    const { result } = renderHook(() => usePetsListPageViewModel())
+    const { result } = renderHook(() => usePetsPageViewModel())
     expect(result.current.isLoading).toBe(true)
   })
 
@@ -45,7 +45,7 @@ describe(usePetsListPageViewModel.name, () => {
       ...baseHookMock,
       isFetching: true,
     })
-    const { result } = renderHook(() => usePetsListPageViewModel())
+    const { result } = renderHook(() => usePetsPageViewModel())
     expect(result.current.isLoading).toBe(true)
   })
 
@@ -54,13 +54,13 @@ describe(usePetsListPageViewModel.name, () => {
       ...baseHookMock,
       isError: true,
     })
-    renderHook(() => usePetsListPageViewModel())
+    renderHook(() => usePetsPageViewModel())
     expect(toastUtils.showErrorToast as jest.Mock).toHaveBeenCalled()
   })
 
   it("should change page when handleChangePage is called", () => {
     const nextPage = 2
-    const { result } = renderHook(() => usePetsListPageViewModel())
+    const { result } = renderHook(() => usePetsPageViewModel())
     act(() => {
       result.current.handleChangePage(nextPage)
     })
@@ -72,7 +72,7 @@ describe(usePetsListPageViewModel.name, () => {
       ...baseHookMock,
       data: undefined,
     })
-    const { result } = renderHook(() => usePetsListPageViewModel())
+    const { result } = renderHook(() => usePetsPageViewModel())
     expect(result.current.pagePetCurrent).toEqual({
       content: [],
       totalPages: 0,

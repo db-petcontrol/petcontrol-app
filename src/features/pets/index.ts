@@ -4,6 +4,6 @@ export { PetList } from "./components/pet-list/PetList"
 export { PetDetails } from "./components/pet-details/PetDetails"
 export { PetActionButtons } from "./components/pet-action-buttons/PetActionButtons"
 
-export { usePetsListPageViewModel } from "./hooks/use-pets-list-view-model/usePetsListViewModel"
+export { usePetsPageViewModel } from "./hooks/pets-page-view-model/usePetsPageViewModel"
 export { useCreatePetPageViewModel } from "./hooks/create-pet-page-view-model/useCreatePetPageViewModel"
 export { usePetPageViewModel } from "./hooks/pet-page-view-model/usePetPageViewModel"
