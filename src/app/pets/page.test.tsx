@@ -2,11 +2,11 @@ import { renderWithProviders } from "@/shared/test-utils/custom-render"
 import Page from "./page"
 import { screen } from "@testing-library/react"
 import { petPageMock } from "@/shared/test-utils/mocks/pets-mocks"
-import { usePetsListPageViewModel } from "@/features/pets"
+import { usePetsPageViewModel } from "@/features/pets"
 
 jest.mock("@/features/pets", () => ({
   ...jest.requireActual("@/features/pets"),
-  usePetsListPageViewModel: jest.fn(),
+  usePetsPageViewModel: jest.fn(),
   PetListHeader: () => <div data-testid="pet-list-header" />,
 }))
 
@@ -19,7 +19,7 @@ const baseHookMock = {
 
 describe("Pets Page", () => {
   beforeEach(() => {
-    ;(usePetsListPageViewModel as jest.Mock).mockReturnValue(baseHookMock)
+    ;(usePetsPageViewModel as jest.Mock).mockReturnValue(baseHookMock)
   })
 
   it("should render PetListHeader", () => {
@@ -34,7 +34,7 @@ describe("Pets Page", () => {
   })
 
   it('should display "nenhum pet foi encontrado" when the list is empty', () => {
-    ;(usePetsListPageViewModel as jest.Mock).mockReturnValue({
+    ;(usePetsPageViewModel as jest.Mock).mockReturnValue({
       ...baseHookMock,
       pagePetCurrent: { ...petPageMock, content: [] },
     })
@@ -44,7 +44,7 @@ describe("Pets Page", () => {
   })
 
   it("should display only the loader when loading and not render any pet card", () => {
-    ;(usePetsListPageViewModel as jest.Mock).mockReturnValue({
+    ;(usePetsPageViewModel as jest.Mock).mockReturnValue({
       ...baseHookMock,
       isLoading: true,
     })
