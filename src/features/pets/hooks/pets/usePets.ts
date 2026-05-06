@@ -6,7 +6,7 @@ import { Pet } from "../../types/pets.types"
 export function usePets(page = 0, size = 6) {
   return useQuery<PageResponse<Pet>>({
     queryKey: ["pets", page],
-    queryFn: () => petsApi.get(page, size),
+    queryFn: () => petsApi.getAll(page, size),
     placeholderData: keepPreviousData,
   })
 }

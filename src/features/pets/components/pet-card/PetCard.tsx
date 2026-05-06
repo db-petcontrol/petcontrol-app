@@ -3,16 +3,20 @@ import { ContainerLayout, ImagePlaceholder } from "@/shared/components"
 import { PetStatusBadge } from "../pet-status-badge/PetStatusBadge"
 import { PetTagBadge } from "../pet-tag-badge/PetTagBadge"
 import { PetActionButtons } from "../pet-action-buttons/PetActionButtons"
+import { useNavigate } from "@/shared/hooks/useNavigate"
 
 interface PetCardProps {
   pet: Pet
 }
 
 export function PetCard({ pet }: PetCardProps) {
+  const { toPet } = useNavigate()
+
   return (
     <ContainerLayout
       key={pet.id}
-      className="flex flex-col gap-1 px-3 py-4 duration-100 hover:border-2 hover:border-primary"
+      className="flex cursor-pointer flex-col gap-1 px-3 py-4 duration-100 hover:border-2 hover:border-primary"
+      onClick={() => toPet(pet.id)}
     >
       <ImagePlaceholder className="mb-4 h-40" />
 
