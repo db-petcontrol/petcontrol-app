@@ -14,7 +14,7 @@ interface PageProps {
 
 export default function Page({ params }: PageProps) {
   const { id } = React.use(params)
-  const { pet, isLoading } = usePetPageViewModel(id)
+  const { pet, isLoading, handleDeletePet } = usePetPageViewModel(id)
 
   return (
     <>
@@ -25,6 +25,7 @@ export default function Page({ params }: PageProps) {
         subtitle="Visualização completa"
         headerActions={
           <PetActionButtons
+            onDelete={handleDeletePet}
             petId={id}
             containerClassName="flex-col md:flex-row"
             infoButtonClassName="self-center text-sm p-4 md:p-5 md:text-md"

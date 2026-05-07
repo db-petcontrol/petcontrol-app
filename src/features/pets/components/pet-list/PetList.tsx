@@ -4,9 +4,10 @@ import { PetCard } from "../pet-card/PetCard"
 
 interface PetListProps {
   pets: Pet[]
+  onDelete: (id: string) => void
 }
 
-export function PetList({ pets }: PetListProps) {
+export function PetList({ pets, onDelete }: PetListProps) {
   if (pets.length === 0) {
     return (
       <div className="flex flex-col items-center justify-center gap-5 py-10">
@@ -19,7 +20,7 @@ export function PetList({ pets }: PetListProps) {
   return (
     <div className="grid w-full grid-cols-1 justify-center gap-6 md:grid-cols-2 lg:grid-cols-3">
       {pets.map((pet) => (
-        <PetCard key={pet.id} pet={pet} />
+        <PetCard key={pet.id} pet={pet} onDelete={onDelete} />
       ))}
     </div>
   )

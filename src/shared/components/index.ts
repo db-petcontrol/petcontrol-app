@@ -19,3 +19,4 @@ export { Header } from "./layout/header/Header"
 export { ImagePlaceholder } from "./layout/image-placeholder/ImagePlaceholder"
 
 export { CustomPagination } from "./pagination/custom-pagination/CustomPagination"
+export { CustomDialog } from "./dialogs/custom-dialog/CustomDialog"

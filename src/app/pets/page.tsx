@@ -1,31 +1,47 @@
 "use client"
 
 import { PetList, PetListHeader, usePetsPageViewModel } from "@/features/pets"
-import { CustomPagination, SectionLoader } from "@/shared/components"
+import {
+  CustomPagination,
+  PageLoader,
+  SectionLoader,
+} from "@/shared/components"
 
 export default function Page() {
-  const { pagePetCurrent, isLoading, page, handleChangePage } =
-    usePetsPageViewModel()
+  const {
+    pagePetCurrent,
+    isLoading,
+    isDeleting,
+    page,
+    handleChangePage,
+    handleDeletePet,
+  } = usePetsPageViewModel()
 
   return (
-    <section className="flex w-full flex-col px-10 py-8 lg:max-w-7xl">
-      <PetListHeader totalPets={pagePetCurrent.totalElements} />
+    <>
+      <PageLoader isLoading={isDeleting} />
 
-      <div className="mt-8 flex w-full flex-col items-center justify-center gap-10">
-        <SectionLoader
-          className="min-h-90 items-start pt-10"
-          isLoading={isLoading}
-        />
+      <section className="flex w-full flex-col px-10 py-8 lg:max-w-7xl">
+        <PetListHeader totalPets={pagePetCurrent.totalElements} />
 
-        {!isLoading && <PetList pets={pagePetCurrent.content} />}
+        <div className="mt-8 flex w-full flex-col items-center justify-center gap-10">
+          <SectionLoader
+            className="min-h-90 items-start pt-10"
+            isLoading={isLoading}
+          />
 
-        <CustomPagination
-          page={page}
-          totalPages={pagePetCurrent.totalPages}
-          onPageChange={handleChangePage}
-          isLoading={isLoading}
-        />
-      </div>
-    </section>
+          {!isLoading && (
+            <PetList pets={pagePetCurrent.content} onDelete={handleDeletePet} />
+          )}
+
+          <CustomPagination
+            page={page}
+            totalPages={pagePetCurrent.totalPages}
+            onPageChange={handleChangePage}
+            isLoading={isLoading}
+          />
+        </div>
+      </section>
+    </>
   )
 }

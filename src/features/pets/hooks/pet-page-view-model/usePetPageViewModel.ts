@@ -4,15 +4,20 @@ import { showErrorToast } from "@/shared/utils/toast-utils"
 import { usePet } from "../pet/usePet"
 import axios from "axios"
 import { useNavigate } from "@/shared/hooks/useNavigate"
+import { useDeletePetHandler } from "../delete-pet-handler/useDeletePetHandler"
 
 interface UsePetPageViewModelResult {
   pet?: Pet
   isLoading: boolean
+  handleDeletePet: (id: string) => void
 }
 
 export function usePetPageViewModel(id: string): UsePetPageViewModelResult {
   const { toPets } = useNavigate()
-  const { data, isLoading, isError, error } = usePet(id)
+  const { data, isLoading: isPetLoding, isError, error } = usePet(id)
+  const { isDeleting, handleDeletePet } = useDeletePetHandler()
+
+  const isLoading = isPetLoding || isDeleting
 
   useEffect(() => {
     if (isError && axios.isAxiosError(error)) {
@@ -29,5 +34,6 @@ export function usePetPageViewModel(id: string): UsePetPageViewModelResult {
   return {
     pet: data,
     isLoading,
+    handleDeletePet,
   }
 }
