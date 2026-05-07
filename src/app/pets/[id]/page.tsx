@@ -25,6 +25,7 @@ export default function Page({ params }: PageProps) {
         subtitle="Visualização completa"
         headerActions={
           <PetActionButtons
+            petId={id}
             containerClassName="flex-col md:flex-row"
             infoButtonClassName="self-center text-sm p-4 md:p-5 md:text-md"
             deleteButtonClassName="self-center text-sm p-4 md:p-5 md:text-md"

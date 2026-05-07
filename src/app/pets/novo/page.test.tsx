@@ -22,7 +22,12 @@ const baseHookMock = {
   tagsOptionsMock,
   isLoading: false,
   handleCreatePet: jest.fn(),
-  isCreating: false,
+  formMethods: {
+    handleSubmit: jest.fn(),
+    formState: {
+      isValid: true,
+    },
+  },
 }
 
 describe("Create Page", () => {
@@ -41,16 +46,6 @@ describe("Create Page", () => {
     ;(useCreatePetPageViewModel as jest.Mock).mockReturnValue({
       ...baseHookMock,
       isLoading: true,
-    })
-
-    renderWithProviders(<Page />)
-    expect(screen.getByTestId("page-loader")).toBeInTheDocument()
-  })
-
-  it("should render the PageLoader when isCreating is true", () => {
-    ;(useCreatePetPageViewModel as jest.Mock).mockReturnValue({
-      ...baseHookMock,
-      isCreating: true,
     })
 
     renderWithProviders(<Page />)

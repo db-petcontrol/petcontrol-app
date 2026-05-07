@@ -1,4 +1,4 @@
-import { Tag } from './../../tags/types/tags.types';
+import { Tag } from "./../../tags/types/tags.types"
 import { Species } from "@/features/species/types/species.type"
 import { PetStatus } from "../enums/pet-status.enum"
 

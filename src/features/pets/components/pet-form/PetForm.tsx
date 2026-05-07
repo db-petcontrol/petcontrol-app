@@ -8,28 +8,28 @@ import {
   SubmitButton,
 } from "@/shared/components"
 import { FieldGroup } from "@/shared/components/ui/field"
-import {
-  defaultValues,
-  petSchema,
-  PetSchema,
-} from "@/features/pets/schemas/pet.schema"
-import { zodResolver } from "@hookform/resolvers/zod"
+import { PetSchema } from "@/features/pets/schemas/pet.schema"
 import { PetStatus, petStatusLabels } from "../../enums/pet-status.enum"
 import { useNavigate } from "@/shared/hooks/useNavigate"
 import { Option } from "@/shared/types/common.types"
+import { useForm } from "react-hook-form"
 
-interface PetFormProps {
+export interface PetFormProps {
+  formMethods: ReturnType<typeof useForm<PetSchema>>
   speciesOptions: Option[]
   tagsOptions: Option[]
+  btnName: string
   onSubmit: (data: PetSchema) => void
 }
 
 export function PetForm({
+  formMethods,
   speciesOptions,
   tagsOptions,
+  btnName,
   onSubmit,
 }: PetFormProps) {
-  const { toPets } = useNavigate()
+  const { goBack } = useNavigate()
 
   const statusOptions = Object.values(PetStatus).map((status) => ({
     value: status,
@@ -37,11 +37,7 @@ export function PetForm({
   }))
 
   return (
-    <FormBase<PetSchema>
-      resolver={zodResolver(petSchema)}
-      onSubmit={onSubmit}
-      defaultValues={defaultValues}
-    >
+    <FormBase<PetSchema> onSubmit={onSubmit} formMethods={formMethods}>
       <FieldGroup>
         <InputField<PetSchema>
           label="Nome do Pet"
@@ -74,10 +70,10 @@ export function PetForm({
         />
       </FieldGroup>
       <div className="mt-2 flex w-full justify-between gap-4 border-t-2 pt-4">
-        <InfoButton className="flex-1" onClick={toPets}>
+        <InfoButton className="flex-1" onClick={goBack}>
           Cancelar
         </InfoButton>
-        <SubmitButton className="flex-1">Cadastrar Pet</SubmitButton>
+        <SubmitButton className="flex-1">{btnName}</SubmitButton>
       </div>
     </FormBase>
   )

@@ -5,6 +5,7 @@ interface UseNavigateResult {
   toPets: () => void
   toPet: (id: string) => void
   toNewPet: () => void
+  toEditPet: (id: string) => void
   goBack: () => void
 }
 
@@ -25,14 +26,25 @@ export function useNavigate(): UseNavigateResult {
     router.push(`${BASE_PET_URL}/novo`)
   }
 
+  function toEditPet(id: string): void {
+    router.push(`${BASE_PET_URL}/${id}/editar`)
+  }
+
   function goBack(): void {
-    router.back()
+    const appOrigin = window.location.origin
+
+    if (document.referrer && document.referrer.startsWith(appOrigin)) {
+      router.back()
+    } else {
+      toPets()
+    }
   }
 
   return {
     toPets,
     toPet,
     toNewPet,
+    toEditPet,
     goBack,
   }
 }

@@ -1,19 +1,11 @@
-import {
-  defaultValues,
-  petSchema,
-  PetSchema,
-} from "@/features/pets/schemas/pet.schema"
-import { zodResolver } from "@hookform/resolvers/zod"
-import { FormProvider, useForm } from "react-hook-form"
+import { PetSchema } from "@/features/pets/schemas/pet.schema"
+import { FormProvider, UseFormReturn } from "react-hook-form"
 
 interface FormProviderMockProps {
   children: React.ReactNode
+  methods: UseFormReturn<PetSchema>
 }
-export function FormProviderMock({ children }: FormProviderMockProps) {
-  const methods = useForm<PetSchema>({
-    mode: "all",
-    resolver: zodResolver(petSchema),
-    defaultValues,
-  })
+
+export function FormProviderMock({ children, methods }: FormProviderMockProps) {
   return <FormProvider {...methods}>{children}</FormProvider>
 }

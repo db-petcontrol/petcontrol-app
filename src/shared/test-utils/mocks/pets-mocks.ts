@@ -17,7 +17,7 @@ export const petResponseMock: Pet = {
   name: "Rex",
   species: speciesMock[0],
   status: PetStatus.AVAILABLE,
-  tags: tagsMock ,
+  tags: tagsMock,
 }
 
 export const petPageMock: PageResponse<Pet> = {

@@ -1,32 +1,35 @@
 "use client"
 
-import { PetForm, useCreatePetPageViewModel } from "@/features/pets"
+import { PetForm, useUpdatePetPageViewModel } from "@/features/pets"
 import { ContainerLayout, PageLayout, PageLoader } from "@/shared/components"
+import React from "react"
 
-export default function Page() {
+interface PageProps {
+  params: Promise<{ id: string }>
+}
+
+export default function Page({ params }: PageProps) {
+  const { id } = React.use(params)
   const {
     formMethods,
     speciesOptions,
     tagsOptions,
     isLoading,
-    handleCreatePet,
-  } = useCreatePetPageViewModel()
+    handleUpdatePet,
+  } = useUpdatePetPageViewModel(id)
 
   return (
     <>
       <PageLoader isLoading={isLoading} />
 
-      <PageLayout
-        title="Adicionar Novo Pet"
-        subtitle="Preencha os dados do novo pet"
-      >
+      <PageLayout title="Editar Pet" subtitle="Atualize as informações do pet">
         <ContainerLayout className="w-full md:max-w-150">
           <PetForm
             formMethods={formMethods}
             speciesOptions={speciesOptions}
             tagsOptions={tagsOptions}
-            onSubmit={handleCreatePet}
-            btnName="Cadastrar Pet"
+            onSubmit={handleUpdatePet}
+            btnName="Atualizar Pet"
           />
         </ContainerLayout>
       </PageLayout>
