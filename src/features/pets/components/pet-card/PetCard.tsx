@@ -7,9 +7,10 @@ import { useNavigate } from "@/shared/hooks/useNavigate"
 
 interface PetCardProps {
   pet: Pet
+  onDelete: (id: string) => void
 }
 
-export function PetCard({ pet }: PetCardProps) {
+export function PetCard({ pet, onDelete }: PetCardProps) {
   const { toPet } = useNavigate()
 
   return (
@@ -39,6 +40,7 @@ export function PetCard({ pet }: PetCardProps) {
       </a>
       <PetActionButtons
         petId={pet.id}
+        onDelete={onDelete}
         containerClassName="mt-2 border-t-2 pt-4"
         infoButtonClassName="flex-1 text-sm"
         deleteButtonClassName="text-sm"

@@ -2,9 +2,11 @@ import { DeleteButton, InfoButton } from "@/shared/components"
 import { useNavigate } from "@/shared/hooks/useNavigate"
 import { cn } from "@/shared/lib/utils"
 import { Edit, Trash2 } from "lucide-react"
+import { PetDeleteDialog } from "../pet-delete-dialog/PetDeleteDialog"
 
 interface PetActionButtonsProps {
   petId: string
+  onDelete: (id: string) => void
   containerClassName?: string
   infoButtonClassName?: string
   deleteButtonClassName?: string
@@ -12,6 +14,7 @@ interface PetActionButtonsProps {
 
 export function PetActionButtons({
   petId,
+  onDelete,
   containerClassName,
   infoButtonClassName,
   deleteButtonClassName,
@@ -26,9 +29,16 @@ export function PetActionButtons({
       >
         <Edit size={16} /> Editar
       </InfoButton>
-      <DeleteButton className={deleteButtonClassName}>
-        <Trash2 size={16} /> Excluir
-      </DeleteButton>
+      <PetDeleteDialog
+        onDelete={() => {
+          onDelete(petId)
+        }}
+        triggerAction={
+          <DeleteButton className={deleteButtonClassName}>
+            <Trash2 size={16} /> Excluir
+          </DeleteButton>
+        }
+      ></PetDeleteDialog>
     </div>
   )
 }

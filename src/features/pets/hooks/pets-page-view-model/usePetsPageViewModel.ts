@@ -3,17 +3,21 @@ import { usePets } from "../pets/usePets"
 import { PageResponse } from "@/shared/types/common.types"
 import { Pet } from "../../types/pets.types"
 import { showErrorToast } from "@/shared/utils/toast-utils"
+import { useDeletePetHandler } from "../delete-pet-handler/useDeletePetHandler"
 
 interface UsePetsPageViewModelResult {
   pagePetCurrent: PageResponse<Pet>
   isLoading: boolean
+  isDeleting: boolean
   page: number
   handleChangePage: (page: number) => void
+  handleDeletePet: (id: string) => void
 }
 
 export function usePetsPageViewModel(): UsePetsPageViewModelResult {
   const [page, setPage] = useState(0)
   const { data, isLoading: petsLoading, isFetching, isError } = usePets(page)
+  const { isDeleting, handleDeletePet } = useDeletePetHandler()
 
   const isLoading = petsLoading || isFetching
 
@@ -38,7 +42,9 @@ export function usePetsPageViewModel(): UsePetsPageViewModelResult {
   return {
     pagePetCurrent: data ?? emptyPage,
     isLoading,
+    isDeleting,
     page,
     handleChangePage,
+    handleDeletePet,
   }
 }
