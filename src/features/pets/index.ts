@@ -7,3 +7,4 @@ export { PetActionButtons } from "./components/pet-action-buttons/PetActionButto
 export { usePetsPageViewModel } from "./hooks/pets-page-view-model/usePetsPageViewModel"
 export { useCreatePetPageViewModel } from "./hooks/create-pet-page-view-model/useCreatePetPageViewModel"
 export { usePetPageViewModel } from "./hooks/pet-page-view-model/usePetPageViewModel"
+export { useUpdatePetPageViewModel } from "./hooks/update-pet-page-view-model/useUpdatePetPageViewModel"

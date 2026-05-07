@@ -9,6 +9,10 @@ export const petsApi = {
   create: async (pet: PetSchema): Promise<void> => {
     await api.post(BASE_URL, pet)
   },
+  update: async (id: string, pet: PetSchema): Promise<Pet> => {
+    const { data } = await api.put(`${BASE_URL}/${id}`, pet)
+    return data
+  },
   get: async (id: string): Promise<Pet> => {
     const { data } = await api.get(`${BASE_URL}/${id}`)
     return data

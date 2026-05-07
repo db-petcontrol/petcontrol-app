@@ -41,7 +41,7 @@ export function SelectField<T extends FieldValues>({
           error={fieldState.error}
         >
           <Select
-            onValueChange={field.onChange}
+            onValueChange={(value) => value && field.onChange(value)}
             onOpenChange={(open) => {
               if (!open) {
                 field.onBlur()

@@ -10,16 +10,19 @@ import { useCreatePet } from "../create-pet/useCreatePet"
 import { toast } from "sonner"
 import { PetSchema } from "../../schemas/pet.schema"
 import { useQueryClient } from "@tanstack/react-query"
+import { useFormPet } from "../form-pet/useFormPet"
+import { useForm } from "react-hook-form"
 
 interface UseCreatePetPageViewModelResult {
+  formMethods: ReturnType<typeof useForm<PetSchema>>
   speciesOptions: Option[]
   tagsOptions: Option[]
   isLoading: boolean
-  isCreating: boolean
   handleCreatePet: (data: PetSchema) => void
 }
 
 export function useCreatePetPageViewModel(): UseCreatePetPageViewModelResult {
+  const formMethods = useFormPet()
   const queryClient = useQueryClient()
   const { toPets } = useNavigate()
 
@@ -28,7 +31,8 @@ export function useCreatePetPageViewModel(): UseCreatePetPageViewModelResult {
 
   const createPetMutation = useCreatePet()
 
-  const isLoading = species.isLoading || tags.isLoading
+  const isLoading =
+    species.isLoading || tags.isLoading || createPetMutation.isPending
   const hasError = species.isError || tags.isError
 
   function handleCreatePet(data: PetSchema): void {
@@ -52,10 +56,10 @@ export function useCreatePetPageViewModel(): UseCreatePetPageViewModelResult {
   }, [hasError, toPets])
 
   return {
+    formMethods,
     speciesOptions: species.options,
     tagsOptions: tags.options,
     isLoading,
-    isCreating: createPetMutation.isPending,
     handleCreatePet,
   }
 }

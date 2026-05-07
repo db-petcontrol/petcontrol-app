@@ -1,3 +1,4 @@
+import { useMemo } from "react"
 import { Species } from "../../types/species.type"
 import { useSpecies } from "../species/useSpecies"
 import { Option } from "@/shared/types/common.types"
@@ -11,12 +12,17 @@ interface UseSpeciesOptionsResult {
 export function useSpeciesOptions(): UseSpeciesOptionsResult {
   const { data, isLoading, isError } = useSpecies()
 
-  return {
-    options:
+  const options = useMemo(
+    () =>
       data?.map((s: Species) => ({
         label: s.name,
         value: s.id,
       })) ?? [],
+    [data]
+  )
+
+  return {
+    options,
     isLoading,
     isError,
   }
