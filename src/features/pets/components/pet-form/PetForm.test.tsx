@@ -7,7 +7,6 @@ import { tagsOptionsMock } from "@/shared/test-utils/mocks/tags-mocks"
 import { useForm } from "react-hook-form"
 import { PetSchema } from "../../schemas/pet.schema"
 
-
 function PetFormTestWrapper(props: Omit<PetFormProps, "formMethods">) {
   const formMethods = useForm<PetSchema>()
   return (
