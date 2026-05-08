@@ -1,51 +1,49 @@
-# 🐾 PetControl App — Frontend
+# 🐾 PetControl App
 
-Aplicação web construída em Next.js como frontend do sistema PetControl, consumindo a API REST desenvolvida em Java Spring Boot.
+O PetControl é uma aplicação web construída em Next.js para cadastro e gerenciamento de pets disponíveis para adoção. O sistema permite listar, cadastrar, editar, visualizar e remover pets por meio de uma interface intuitiva e integrada a uma API REST.
 
----
+<br>
 
-🔗 APP disponível em produção: [link](https://petcontrol-app.onrender.com)
+🔗 Disponível em produção: [https://petcontrol-app.onrender.com](https://petcontrol-app.onrender.com)
 
 _⚠️ A aplicação pode levar alguns segundos para responder na primeira requisição devido ao cold start da plataforma._
 
 <br>
 
-```
-[Navegador do Usuário]
-         ↕
-[Next.js — Frontend (esta stack)]
-         ↕  HTTP / REST / JSON
-[Java Spring Boot — Backend]
-```
+## ✨ Principais funcionalidade
 
----
+- Cadastro de pets com validação de formulários
+- Listagem paginada de pets em formato de cards
+- Visualização detalhada das informações de cada pet
+- Edição de pets cadastrados
+- Exclusão de pets com confirmação via modal
+- Feedback visual para estados de carregamento e erros
+- Interface responsiva e componentizada
+- Testes automatizados para componentes, hooks e fluxos principais
 
-## 🚀 Tecnologias Utilizadas
+<br>
 
-| Categoria         | Tecnologia      | Versão |
-| ----------------- | --------------- | ------ |
-| Framework         | Next.js         | 16     |
-| UI                | React           | 19     |
-| Linguagem         | TypeScript      | 5      |
-| Estilo            | Tailwind CSS    | 4      |
-| Componentes       | shadcn/ui       | —      |
-| HTTP Client       | Axios           | 1      |
-| Estado assíncrono | TanStack Query  | 5      |
-| Formulários       | React Hook Form | 7      |
-| Validação         | Zod             | 3      |
-| Testes — Runner   | Jest            | 30     |
-| Testes — UI       | Testing Library | 16     |
-| Testes — Mock API | MSW             | 2      |
-| Linting           | ESLint          | 9      |
-| Formatação        | Prettier        | 3      |
+## 🛠️ Tecnologias Utilizadas
 
----
+| Tecnologia      | Versão | Categoria         |
+| --------------- | ------ | ----------------- |
+| Next.js         | 16     | Framework         |
+| React           | 19     | UI                |
+| TypeScript      | 5      | Linguagem         |
+| Tailwind CSS    | 4      | Estilo            |
+| shadcn/ui       | —      | Componentes       |
+| Axios           | 1      | HTTP Client       |
+| TanStack Query  | 5      | Estado assíncrono |
+| React Hook Form | 7      | Formulários       |
+| Zod             | 3      | Validação         |
+| Jest            | 30     | Testes — Runner   |
+| Testing Library | 16     | Testes — UI       |
+| ESLint          | 9      | Linting           |
+| Prettier        | 3      | Formatação        |
 
-## 🏗️ Estrutura do Projeto
+<br>
 
-## ⛔ _Seção em construção_
-
-## ⚙️ Como Rodar o Projeto
+## 🚀 Como rodar o projeto
 
 ### Pré-requisitos
 
@@ -65,7 +63,7 @@ cd petcontrol-app
 npm install
 ```
 
----
+<br>
 
 ## 🖥️ Rodando Localmente (backend local)
 
@@ -84,7 +82,7 @@ npm run dev
 
 Acesse `http://localhost:3000`.
 
----
+<br>
 
 ## ☁️ Rodando Apontando para Produção (Render)
 
@@ -108,7 +106,7 @@ NEXT_PUBLIC_API_URL definida (.env presente) → usa a URL configurada (Render)
 NEXT_PUBLIC_API_URL ausente (sem .env)       → fallback para localhost:8080
 ```
 
----
+<br>
 
 ## 📝 Scripts Disponíveis
 
@@ -123,6 +121,8 @@ npm run typecheck    # Verifica erros de tipo TypeScript
 npm run test         # Executa testes em modo watch
 npm run test:ci      # Executa testes com relatório de coverage (CI)
 ```
+
+<br>
 
 ---
 
