@@ -13,9 +13,8 @@ export const petsApi = {
     const { data } = await api.put(`${BASE_URL}/${id}`, pet)
     return data
   },
-  delete: async (id: string): Promise<Pet> => {
-    const { data } = await api.delete(`${BASE_URL}/${id}`)
-    return data
+  delete: async (id: string): Promise<void> => {
+    await api.delete(`${BASE_URL}/${id}`)
   },
   get: async (id: string): Promise<Pet> => {
     const { data } = await api.get(`${BASE_URL}/${id}`)
