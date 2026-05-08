@@ -24,7 +24,7 @@ export function InputField<T extends FieldValues>({
   required,
   ...inputProps
 }: InputFieldProps<T>) {
-  const { control } = useFormContext()
+  const { control, watch } = useFormContext()
 
   return (
     <Controller
@@ -37,14 +37,21 @@ export function InputField<T extends FieldValues>({
           required={required}
           error={fieldState.error}
         >
-          <Input
-            {...field}
-            {...inputProps}
-            data-testid={`input-${name}`}
-            id={name}
-            aria-invalid={fieldState.invalid}
-            className="rounded-md border-gray-300 bg-gray-100 px-4 py-5 shadow-sm focus-visible:ring-gray-300"
-          />
+          <div className="relative">
+            <Input
+              {...field}
+              {...inputProps}
+              data-testid={`input-${name}`}
+              id={name}
+              aria-invalid={fieldState.invalid}
+              className="rounded-md border-gray-300 bg-gray-100 px-4 py-5 shadow-sm focus-visible:ring-gray-300"
+            />
+            {inputProps.maxLength && (
+              <p className="absolute -top-6 right-1.5 text-sm text-muted-foreground">
+                {watch(name)?.length || 0}/{inputProps.maxLength}
+              </p>
+            )}
+          </div>
         </FormField>
       )}
     />

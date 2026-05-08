@@ -23,7 +23,9 @@ export function PetCard({ pet, onDelete }: PetCardProps) {
 
         <div className="mb-4 flex flex-col gap-0.5">
           <div className="flex items-start justify-between">
-            <h3 className="text-xl font-bold text-gray-800">{pet.name}</h3>
+            <h3 className="w-[65%] overflow-hidden text-xl font-bold text-ellipsis whitespace-nowrap text-gray-800">
+              {pet.name}
+            </h3>
             <PetStatusBadge status={pet.status} />
           </div>
           <p className="text-2xlg text-gray-500 italic">{pet.species.name}</p>
