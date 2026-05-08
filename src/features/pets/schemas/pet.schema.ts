@@ -5,11 +5,8 @@ export const petSchema = z.object({
   name: z
     .string()
     .trim()
-    .nonempty("O nome do pet é obrigatório")
-    .regex(
-      /^[\p{L}\s]+$/u,
-      "O nome do pet deve conter apenas letras e espaços"
-    ),
+    .nonempty("O nome é obrigatório")
+    .regex(/^[\p{L}\s]+$/u, "O nome deve conter apenas letras e espaços"),
   specieId: z.uuid("A espécie é obrigatória"),
   status: z.enum(PetStatusArray, { message: "O status é obrigatório" }),
   tagsIds: z.array(z.uuid()),
