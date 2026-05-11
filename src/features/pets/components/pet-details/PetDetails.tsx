@@ -28,7 +28,7 @@ export function PetDetails({ pet }: PetDetailsProps) {
           </div>
           <div>
             <h4 className="mb-0.5 text-gray-700">Nome</h4>
-            <p className="font-bold">{pet.name}</p>
+            <p className="font-bold break-all">{pet.name}</p>
           </div>
           <div>
             <h4 className="mb-0.5 text-gray-700">Espécie</h4>

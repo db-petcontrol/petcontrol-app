@@ -16,7 +16,7 @@ export function PageLayout({
   children,
   headerActions,
 }: PageLayoutProps) {
-  const { goBack } = useNavigate()
+  const { toPets } = useNavigate()
 
   return (
     <section className="w-full">
@@ -26,7 +26,7 @@ export function PageLayout({
             <LinkButton
               targetLabel="pagina anterior"
               className="text-foreground"
-              onClick={goBack}
+              onClick={toPets}
             >
               <ArrowLeft
                 className="scale-150"
